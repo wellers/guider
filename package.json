@@ -1,0 +1,30 @@
+{
+	"name": "guider",
+	"description": "Functions to convert from a guid to URL-friendly Id and the reverse.",	
+	"version": "1.0.0",
+	"author": "Paul Welbourne",		
+	"type": "module",
+	"license": "ISC",		
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/esm/index.js",
+			"require": "./dist/cjs/index.js"
+		}
+	},
+	"types": "dist/esm/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"prepublish": "scripts/cleandist && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && scripts/fixup",
+		"test": "node --loader ts-node/esm test/index.test.ts"
+	},	
+	"devDependencies": {
+		"@types/node": "17.0.31",
+		"@wellers/testarray": "1.1.4",
+		"ts-node": "10.7.0",
+		"typescript": "4.6.4"
+	}	
+}

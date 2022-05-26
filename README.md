@@ -1,0 +1,1 @@
+Functions to convert from a guid to URL-friendly Id and the reverse.
