@@ -1,19 +1,19 @@
 import { strictEqual } from 'assert';
 import { testArray, Test } from '@wellers/testarray';
-import { toStringFromGuid, toGuidFromString } from '../src/index.js';
+import { toUrlFriendlyIdFromGuid, toGuidFromUrlFriendlyId } from '../src/index.js';
 
 const tests: Test[] = [
 	{
 		name: 'given a guid, should return URL friendly Id',
 		args: {
-			query: () => toStringFromGuid('4a603b63-58f0-453c-a0f7-1526c3d5761e'),
+			query: () => toUrlFriendlyIdFromGuid('4a603b63-58f0-453c-a0f7-1526c3d5761e'),
 			result: 'YztgSvBYPEWg9xUmw9V2Hg'
 		}
 	},
 	{
 		name: 'given an URL friendly Id, should return guid',
 		args: {
-			query: () => toGuidFromString('YztgSvBYPEWg9xUmw9V2Hg'),
+			query: () => toGuidFromUrlFriendlyId('YztgSvBYPEWg9xUmw9V2Hg'),
 			result: '4a603b63-58f0-453c-a0f7-1526c3d5761e'
 		}
 	}

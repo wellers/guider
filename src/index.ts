@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 
-function toStringFromGuid(input: string) {
+function toUrlFriendlyIdFromGuid(input: string) {
 	const guid = guidToBytes(input)
 	const buffer = Buffer.from(guid);
 	const base64: string = buffer.toString('base64');
@@ -8,7 +8,7 @@ function toStringFromGuid(input: string) {
 	return base64.replace("/", "-").replace("+", "_").replace("==", "");
 }
 
-function toGuidFromString(input: string) {
+function toGuidFromUrlFriendlyId(input: string) {
 	input = input.replace("-", "/").replace("_", "+") + "==";
 
 	const buffer = Buffer.from(input, 'base64');
@@ -60,4 +60,4 @@ function arrayToGuidString(byteArray: Uint16Array) {
 	return guid;
 }
 
-export { toStringFromGuid, toGuidFromString }
+export { toUrlFriendlyIdFromGuid, toGuidFromUrlFriendlyId }
