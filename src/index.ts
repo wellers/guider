@@ -44,10 +44,8 @@ function guidToBytes(guid: string) {
 }
 
 function arrayToGuidString(byteArray: Uint16Array) {
-	let guid = "";
-
-	//AD GUID needs to be in this order	
-	let order = [3, 2, 1, 0, 5, 4, 7, 6, 8, 9, 10, 11, 12, 13, 14, 15];
+	const order = [3, 2, 1, 0, 5, 4, 7, 6, 8, 9, 10, 11, 12, 13, 14, 15];
+	let guid = "";	
 
 	for (let i = 0; i < order.length; i++) {
 		const hex = Number(byteArray[order[i]]).toString(16);
