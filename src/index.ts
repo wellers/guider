@@ -1,17 +1,17 @@
 import { Buffer } from 'node:buffer';
 
-function toUrlFriendlyIdFromGuid(input: string) {
-	const guid = guidToBytes(input)
-	const buffer = Buffer.from(guid);
+function toUrlFriendlyId(guid: string) {
+	const bytes = guidToBytes(guid)
+	const buffer = Buffer.from(bytes);
 	const base64: string = buffer.toString('base64');
 
 	return base64.replace("/", "-").replace("+", "_").replace("==", "");
 }
 
-function toGuidFromUrlFriendlyId(input: string) {
-	input = input.replace("-", "/").replace("_", "+") + "==";
+function toGuid(id: string) {
+	id = id.replace("-", "/").replace("_", "+") + "==";
 
-	const buffer = Buffer.from(input, 'base64');
+	const buffer = Buffer.from(id, 'base64');
 	const byteArray = Uint16Array.from(buffer);
 
 	return arrayToGuidString(byteArray);
@@ -60,4 +60,4 @@ function arrayToGuidString(byteArray: Uint16Array) {
 	return guid;
 }
 
-export { toUrlFriendlyIdFromGuid, toGuidFromUrlFriendlyId }
+export { toUrlFriendlyId, toGuid }

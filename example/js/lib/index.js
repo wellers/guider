@@ -1,11 +1,11 @@
-const { toUrlFriendlyIdFromGuid, toGuidFromUrlFriendlyId } = require('guider');
+const { toUrlFriendlyId, toGuid } = require('guider');
 
 const testGuid = '4a603b63-58f0-453c-a0f7-1526c3d5761e';
 
 console.log(testGuid);
 
-const id = toUrlFriendlyIdFromGuid(testGuid);
-console.log('toUrlFriendlyIdFromGuid', id);
+const id = toUrlFriendlyId(testGuid);
+console.log('toUrlFriendlyId', id);
 
-const guid = toGuidFromUrlFriendlyId(id);
-console.log('toGuidFromUrlFriendlyId', guid);
+const guid = toGuid(id);
+console.log('toGuid', guid);
